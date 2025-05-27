@@ -76,7 +76,6 @@ public class CreateCategoryTestFixture : BaseFixture
 
     public CreateCategoryInput GetInvalidInputTooLongDescription()
     {
-        // descrtiption não pode ser maior que 10.000 caracteres
         var invalidInputTooLongDescription = GetInput();
         var tooLongDescriptionForCategory = Faker.Commerce.ProductDescription();
         while (tooLongDescriptionForCategory.Length <= 10_000)

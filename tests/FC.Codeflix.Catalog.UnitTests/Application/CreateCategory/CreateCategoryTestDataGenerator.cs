@@ -1,6 +1,4 @@
-﻿using FC.Codeflix.Catalog.UnitTests.Application.CreateCategory;
-
-namespace FC.Codeflix.Catalog.UnitTests.Domain.Entity.Category;
+﻿namespace FC.Codeflix.Catalog.UnitTests.Application.CreateCategory;
 
 public class CreateCategoryTestDataGenerator
 {
@@ -13,7 +11,7 @@ public class CreateCategoryTestDataGenerator
 
         for (int index = 0; index < times; index++)
         {
-            switch(index % totalInvalidCases)
+            switch (index % totalInvalidCases)
             {
                 case 0:
                     invalidInputsList.Add(new object[]
