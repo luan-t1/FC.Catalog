@@ -7,15 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.0.1" />
     <PackageReference Include="MediatR" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FC.Codeflix.Catalog.Domain\FC.Codeflix.Catalog.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UseCases\Category\GetCategory\" />
   </ItemGroup>
 
 </Project>
