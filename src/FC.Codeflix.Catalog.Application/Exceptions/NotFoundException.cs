@@ -6,4 +6,9 @@ public class NotFoundException : ApplicationException
         : base(message)
     {
     }
+    public static void ThrowIfNull(object? @object, string exceptionMessage)
+    {
+        if (@object == null)
+            throw new NotFoundException(exceptionMessage);
+    }
 }
