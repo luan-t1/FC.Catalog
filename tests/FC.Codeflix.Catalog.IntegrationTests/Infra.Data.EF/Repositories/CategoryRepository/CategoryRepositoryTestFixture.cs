@@ -48,12 +48,17 @@ public class CategoryRepositoryTestFixture : BaseFixture
             getRandomBoolean()
             );
 
-    public CodeflixCatalogDbContext CreateDbContext()
-    => new CodeflixCatalogDbContext(
+    public CodeflixCatalogDbContext CreateDbContext(bool preservaData = false)
+    {
+        var context = new CodeflixCatalogDbContext(
             new DbContextOptionsBuilder<CodeflixCatalogDbContext>()
                 .UseInMemoryDatabase("integration-tests-db")
                 .Options
-        );
+            );
+        if (preservaData == false)
+            context.Database.EnsureDeleted();
+        return context;
+    }
 
     public List<Entity.Category> GetExampleCategoriesList(int length = 10)
         => Enumerable.Range(1, length)

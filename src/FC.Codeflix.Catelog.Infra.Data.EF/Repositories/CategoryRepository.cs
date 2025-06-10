@@ -32,9 +32,12 @@ public class CategoryRepository : ICategoryRepository
     public async Task Insert(Category aggregate, CancellationToken cancellationToken)
     => await _categories.AddAsync(aggregate, cancellationToken);
 
-    public Task<SearchOutput<Category>> Search(SearchInput Input, CancellationToken cancellationToken)
+    public async Task<SearchOutput<Category>> Search(SearchInput input, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var total = await _categories.CountAsync();
+        var items = await _categories.ToListAsync();
+        return new (
+            input.Page, input.PerPage, total, items);
     }
 
     public Task Update(Category aggregate, CancellationToken cancellationToken)
